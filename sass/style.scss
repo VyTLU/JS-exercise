@@ -93,6 +93,12 @@ body {
       font-size: size(smaller);
       padding: 16px 18px !important;
     }
+
+    & .navbar__menu-cart {
+      display: flex;
+      padding: 16px 18px;
+      font-size: size(medium2);
+    }
   }
 }
 
