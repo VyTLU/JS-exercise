@@ -1,0 +1,54 @@
+- const art = ['w-auto', 'd-flex', 'flex-wrap']
+mixin article1(article1Data)
+    article.article(class=art)
+        .article__block(class="col-md-6")
+            .article__block__headline 
+            h2.article__block__title= article1Data.title 
+            p.article__block__description= article1Data.description
+        .article__block(class="col-md-6")
+            img.article__block__img(src= article1Data.src alt= article1Data.title)
+
+mixin article2(article2Data)
+    article.article(class=art)
+        .article__block(class="col-md-6")
+            img.article__block__img(src= article2Data.src alt= article2Data.title)
+        .article__block(class="col-md-6")
+            .article__block__headline 
+            h2.article__block__title= article2Data.title 
+            each n in article2Data.description
+                p.article__block__description= n
+
+mixin wrapper(wrapperData)
+    +article1(wrapperData[0])
+    +article2(wrapperData[1]) 
+
+main    
+    section.banner(class="d-flex")  
+        .overlay 
+            .banner-text 
+                h1.banner-text__h1(class="text-center") Neurond AI is a transformation business
+                p.banner-text__h4(class="text-center").
+                    We revolutionize the way ambitious businesses work with game-changing artificial
+                    intelligence and data science solutions.
+
+    - const w = ['justify-content-center', 'align-items-center', 'flex-column', 'd-flex']
+    section.wrapper(class=w)
+        - const a1 = {title: 'We Solve Problems', description: 'Every organization has a unique mountain to climb. We are hyper-focused on developing artificial intelligence and machine learning solutions that will help you reach the peak.', src: 'https://cdn.neurond.com/neurondasset/assets/image/branch/HomePage/Homepage_Concept1_H2_We_Solve.webp'}
+        - const a2 = {title: 'The Best In The Business', description: ['When you work with us, you are partnering with a team with over 15 years of experience in creating state-of-the-art technical solutions. We have unrivalled expertise in data science and artificial intelligence. We harness that knowledge to push your business to new heights.'], src: 'https://cdn.neurond.com/neurondasset/assets/image/branch/HomePage/Homepage_Concept1_H2_The_Best.webp'}
+        - const w1 = [a1, a2] 
+        +wrapper(w1)
+
+    - const mar = ['w-auto', 'h-auto']
+    section.margin(class=mar)
+        .wrapper(class=w)
+            - const wrtitle =['text-capitalize', 'text-center']
+            h2.wrapper__title(class=wrtitle) services   
+    
+    section.wrapper(class=w)
+        - const str1 = ['Revolutionize the way you work. Our goal is to help you be more effective, more creative and push your business further than you thought possible. Our solutions have changed the way companies approach working. Whether that be through bespoke machine learning algorithms, a custom computer vision solution or a tailored forecasting tool, you can be confident we will find the right solution to make an impact.']
+        - const a3 = {title: 'Re-imagine Your Process', description: str1, src: 'https://cdn.neurond.com/neurondasset/assets/image/branch/HomePage/Homepage_Concept1_H2_Reimagine.webp'}
+
+        - const str = ['Your problems are our problems. Our people-first approach allows us to understand your business and its challenges intimately. We strive to implement solutions that add realvalue, discover useful insights and make your business more cost effective.', 'At Neurond AI, we want to see the power of AI gain momentum and grow exponentially. With the right strategy, all businesses can gain immensely from implementing AI-powered technology.']
+        - const a4 = {title: 'Leverage AI Through Personal Interactions', description: str, src: 'https://cdn.neurond.com/neurondasset/assets/image/branch/HomePage/Homepage_Concept1_H2_Leverage.webp'}
+        - const w2 = [a3, a4] 
+        +wrapper(w2)

@@ -1,0 +1,34 @@
+mixin location(locationData)
+    .location 
+        h3.responsive-footer__h3= locationData.name 
+        p.responsive-footer__text= locationData.adr
+
+footer 
+    - const f = ['text-light', 'd-flex', 'justify-content-center']
+    .footer-container(class=f) 
+        - const rf = ['d-flex', 'col-xxl-10', 'col-12', 'row', 'flex-wrap']
+        .responsive-footer(class=rf)
+            .responsive-footer__column1(class="col-md-6")
+                .responsive-footer__column1__logo(class="col-md-12")
+                    - const rflogo = ['mb-md-0', 'mb-5']
+                    img.responsive-footer__logo(class=rflogo src="https://cdn.neurond.com/neurondasset/assets/image/branch/logo/neurond-final-white.svg" alt="NeurondAI-logo")
+                .responsive-footer__column1__div2(class="col-md-12")
+                    h3.responsive-footer__h3 Contact Us
+                    ul.responsive-footer__list-contact(class="list-unstyled")
+                        - const cnt = ['+84 236 3649 822 (EN)', '+81 35 403 5934 (日本語)', 'contact@neurond.com']
+                        each n, i in cnt 
+                            if i === (cnt.length - 1)
+                                li.contact(class="mt-2")
+                                    a.mail-contact(href="mailto:contact@neurond.com")= n 
+                            else 
+                                li.contact= n 
+            .responsive-footer__column2(class="col-md-6")
+                - const l1 = {name: 'Head Office', adr: '10th floor, PGT Tower building, 220 Nguyen Huu Tho Str, Hoa Thuan Tay Ward, Hai Chau Dist, Da Nang City, Vietnam'}
+                +location(l1)
+
+                - const l2 = {name:'Tokyo Office', adr: 'Level 21 Shiodome Shibarikyu Building, 1-2-3 Kaigan, Minato-ku, Tokyo 105-0022, Japan'}
+                +location(l2)
+
+                .responsive-footer__column2-div2
+                    p.coppyright 
+                        small Copyright © 2021 Neurond Technology JSC.
