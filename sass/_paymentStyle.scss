@@ -1,0 +1,27 @@
+.item-container{
+    margin-top: 5rem;
+    padding: 20px 30rem;
+    & .item-list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2em 0;
+
+        & .item-list__photo{
+            width: 30%;
+            border-radius: 5px;
+            padding: 0 0.5em;
+        }
+
+        & .item-list__price{
+            width: 15px;
+            padding-right: 2em;
+        }
+
+        & .item-list__quantity{
+            outline: none;
+            padding-right: 2em;
+        }
+    }
+}

@@ -26,7 +26,7 @@ function updateTotal(){
         let itemList = itemLists[i];
         let itemPrice = itemList.getElementsByClassName('item-list__price')[0];
         let itemQuantity = itemList.getElementsByClassName('item-list__quantity')[0];
-        let price = parseFloat(itemPrice.innerText.replace(''));
+        let price = parseFloat(itemPrice.innerText);
         let quantity = itemQuantity.value;
         total += (price*quantity);
     }

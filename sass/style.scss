@@ -1,4 +1,5 @@
 @import 'variable';
+@import 'paymentStyle';
 
 @function size($size-name) {
   @return map-get($font-sizes, $size-name);
