@@ -4,6 +4,8 @@ if (document.readyState == "loading") {
     ready();
 }
 
+
+
 function ready(){
     let removeItemButton = document.getElementsByClassName('item-list__remove');
     for (let i = 0; i < removeItemButton.length; i++) {
