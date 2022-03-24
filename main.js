@@ -4,7 +4,11 @@ if (document.readyState == "loading") {
     ready();
 }
 
-
+// $(document).ready(function(){
+    $(".item-list__photo").click(function(){
+        $(".item-list__price").load("http://localhost:3001/product");
+    });
+// });
 
 function ready(){
     let removeItemButton = document.getElementsByClassName('item-list__remove');
