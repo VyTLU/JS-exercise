@@ -1,14 +1,12 @@
+$(".item-list__photo").click(function(){
+    $(".item-list__price").load("http://localhost:3001/product");
+});
+
 if (document.readyState == "loading") {
     document.addEventListener('DOMContentLoaded', ready);
 } else {
     ready();
 }
-
-// $(document).ready(function(){
-    $(".item-list__photo").click(function(){
-        $(".item-list__price").load("http://localhost:3001/product");
-    });
-// });
 
 function ready(){
     let removeItemButton = document.getElementsByClassName('item-list__remove');

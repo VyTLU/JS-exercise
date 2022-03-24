@@ -23,6 +23,10 @@
   padding-right: 2em;
 }
 
+.product .product__add__link {
+  color: blueviolet !important;
+}
+
 * {
   margin: 0;
   padding: 0;
