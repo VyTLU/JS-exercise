@@ -1,6 +1,7 @@
-$(".item-list__photo").click(function(){
-    $(".item-list__price").load("http://localhost:3001/product");
-});
+// $(".item-list__photo").click(function(){
+//     $(".item-list__price").load("http://localhost:3001/product");
+// });
+import {product} from './product.js';
 
 if (document.readyState == "loading") {
     document.addEventListener('DOMContentLoaded', ready);
@@ -8,6 +9,7 @@ if (document.readyState == "loading") {
     ready();
 }
 
+let selectedPrduct = [], paymentProduct = [];
 function ready(){
     let removeItemButton = document.getElementsByClassName('item-list__remove');
     for (let i = 0; i < removeItemButton.length; i++) {
