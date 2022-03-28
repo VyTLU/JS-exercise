@@ -1,5 +1,42 @@
 .product{
-    & .product__add__link{
-        color: blueviolet !important;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 3.125rem;
+    padding-bottom: 6rem;
+
+    & .product__wrapper{
+        margin: 0 1.25rem;
+        position: relative;
+        width: 20rem;
+        // overflow: hidden;
+
+        & .product__wrapper__img{
+            width: 100%;
+            // height: 30rem;
+        }
+
+        & .product__wrapper__img:hover{
+            opacity: 0.5;
+        }
+
+        & .product__wrapper__add{
+            // position: absolute;
+            width: 100%;
+            background-color: darkgrey;
+            transition: all 0.3s ease-in-out;
+            opacity: 1;
+            cursor: pointer;
+            text-align: center;
+            // color: red !important;
+        }
+
+        // & .product__wrapper__img:hover .add-cart{
+        //     bottom: 50%;
+        //     opacity: 1;
+        //     padding: 0.625rem;
+        //     z-index: 2;
+        // }
     }
 }

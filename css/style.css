@@ -23,8 +23,31 @@
   padding-right: 2em;
 }
 
-.product .product__add__link {
-  color: blueviolet !important;
+.product {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 3.125rem;
+  padding-bottom: 6rem;
+}
+.product .product__wrapper {
+  margin: 0 1.25rem;
+  position: relative;
+  width: 20rem;
+}
+.product .product__wrapper .product__wrapper__img {
+  width: 100%;
+}
+.product .product__wrapper .product__wrapper__img:hover {
+  opacity: 0.5;
+}
+.product .product__wrapper .product__wrapper__add {
+  width: 100%;
+  background-color: darkgrey;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+  cursor: pointer;
+  text-align: center;
 }
 
 * {

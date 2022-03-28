@@ -5,28 +5,28 @@
       "src": "K62u25Jk6vo",
       "alt": "Glasses",
       "price": "9.99",
-      "quantity": "1"
+      "quantity": 1
     },
     {
       "id": 2,
       "src": "KsLPTsYaqIQ",
       "alt": "Camera",
       "price": "9.99",
-      "quantity": "1"
+      "quantity": 1
     },
     {
       "id": 3,
       "src": "LxVxPA1LOVM",
       "alt": "Shoe",
       "price": "9.99",
-      "quantity": "2"
+      "quantity": 1
     },
     {
       "id": 4,
       "src": "2cFZ_FB08UM",
       "alt": "Watch",
       "price": "9.99",
-      "quantity": "2"
+      "quantity": 1
     }
   ]
 }
