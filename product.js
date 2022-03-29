@@ -1,5 +1,6 @@
 let productContainer = document.getElementsByClassName("product")[0];
 let productAdd = document.getElementsByClassName("product__wrapper__add");
+let badgeCart = document.getElementById("lblCartCount");
 let productData;
 
 const CART = {
@@ -16,7 +17,6 @@ const CART = {
         if (match && match[0]) return match[0];
     },
     add(id) {
-        console.log("String ", id);
         if (CART.find(id)) {
             CART.increase(id, 1);
         } else {
@@ -77,7 +77,6 @@ function renderHTML(productData) {
     for (let i = 0; i < productAdd.length; i++) {
         const element = productAdd[i];
         element.setAttribute('data-id', productData[i].id);
-        console.log(element);
         element.addEventListener("click", addProduct);
     }
 }
@@ -85,6 +84,8 @@ function renderHTML(productData) {
 function addProduct(element) {
     element.preventDefault();
     let id = parseInt(element.target.getAttribute('data-id'));
-    console.log(id);
     CART.add(id, 1);
+    if(CART.find(id)){
+        badgeCart.innerHTML = CART.contents.length;
+    }
 }

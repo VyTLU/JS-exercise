@@ -1,6 +1,6 @@
-@import 'variable';
-@import 'paymentStyle';
-@import 'productStyle';
+@import "variable";
+@import "paymentStyle";
+@import "productStyle";
 
 @function size($size-name) {
   @return map-get($font-sizes, $size-name);
@@ -21,7 +21,8 @@ body {
 }
 
 .header {
-  background-color: $primary-color;
+  // background-color: $primary-color;
+  background-color: transparent;
 
   & .navbar {
     width: 1200px;
@@ -41,11 +42,11 @@ body {
       }
     }
 
-    & .navbar-toggler{
-      color: hsla(0,0%,100%,.5);
-      border-color: hsla(0,0%,100%,.1);
-      
-      &:focus{
+    & .navbar-toggler {
+      color: hsla(0, 0%, 100%, 0.5);
+      border-color: hsla(0, 0%, 100%, 0.1);
+
+      &:focus {
         outline: 0;
         box-shadow: none;
       }
@@ -100,6 +101,23 @@ body {
       display: flex;
       padding: 16px 18px;
       font-size: size(medium2);
+
+      & .badge {
+        padding-left: 9px;
+        padding-right: 9px;
+        -webkit-border-radius: 9px;
+        -moz-border-radius: 9px;
+        border-radius: 9px;
+      }
+
+      & #lblCartCount {
+        font-size: 12px;
+        // background: #ff0000;
+        color: red;
+        padding: 0 5px;
+        vertical-align: top;
+        margin-left: -15px;
+      }
     }
   }
 }
@@ -120,7 +138,7 @@ svg {
   font-size: inherit;
 }
 
-button:focus{
+button:focus {
   outline: 0 !important;
 }
 
@@ -131,8 +149,8 @@ main {
     position: relative;
     height: 100vh;
     width: 100%;
-    background: url("https://cdn.neurond.com/neurondasset/assets/image/branch/HomePage/home_page_slider.webp")
-      center/cover no-repeat;
+    background: url("https://source.unsplash.com/mr4JG4SYOF8") center/cover
+      no-repeat;
     margin: 0 0 120px;
 
     & .overlay {
@@ -548,89 +566,90 @@ main {
     }
   }
 
-  main .wrapper{
+  main .wrapper {
     margin-bottom: 60px;
     padding: 0 16px;
 
-    & .article{
+    & .article {
       height: auto;
       margin-bottom: 60px;
 
-      & .article__block{
+      & .article__block {
         min-height: auto;
         width: 100%;
 
-        & .article__block__title{
+        & .article__block__title {
           font-size: size(small2);
         }
 
-        & .article__block__description{
+        & .article__block__description {
           padding: 16px 0 0;
         }
 
-        & .article__block__img{
+        & .article__block__img {
           max-height: 220px;
         }
       }
     }
   }
 
-  main .margin{
+  main .margin {
     margin-bottom: 60px;
 
-    & .wrapper__title{
+    & .wrapper__title {
       font-size: size(small2);
       padding: 32px 0;
     }
   }
 
-  .footer-container{
-    & .responsive-footer{
+  .footer-container {
+    & .responsive-footer {
       padding: 64px 16px;
     }
 
-    & .responsive-footer__column1 .responsive-footer__column1__logo{
+    & .responsive-footer__column1 .responsive-footer__column1__logo {
       padding-left: 0;
       padding-bottom: 0;
 
-      & .responsive-footer__logo{
+      & .responsive-footer__logo {
         width: 160px;
       }
     }
 
-    & .responsive-footer__column1 .responsive-footer__column1__div2{
+    & .responsive-footer__column1 .responsive-footer__column1__div2 {
       padding-left: 0;
     }
 
-    & .responsive-footer__h3{
+    & .responsive-footer__h3 {
       font-size: size(x-small);
     }
 
-    & .responsive-footer__column2{
+    & .responsive-footer__column2 {
       padding-top: 24px;
     }
 
-    & .responsive-footer__column2 .location .responsive-footer__text, & .responsive-footer__column1 .responsive-footer__column1__div2 .contact{
+    & .responsive-footer__column2 .location .responsive-footer__text,
+    & .responsive-footer__column1 .responsive-footer__column1__div2 .contact {
       font-size: size(x-small3);
     }
   }
 }
 
-@media screen and (max-width: 375px){
-  main .banner{
+@media screen and (max-width: 375px) {
+  main .banner {
     height: 100vh;
 
-    & .overlay .banner-text{
+    & .overlay .banner-text {
       padding: 0 12px;
       position: relative;
       height: fit-content;
 
-      & .banner-text__h1{
+      & .banner-text__h1 {
         width: 100%;
         font-size: size(small);
       }
 
-      & .banner-text__h4{
+      & .banner-text__h4 {
         width: auto;
         left: 60px;
         position: static;
@@ -639,63 +658,68 @@ main {
     }
   }
 
-  main .wrapper{
+  main .wrapper {
     padding: 0 16px;
   }
 
-  main{
-    & .wrapper .article .article__block .article__block__title, & .margin .wrapper__title{
+  main {
+    & .wrapper .article .article__block .article__block__title,
+    & .margin .wrapper__title {
       font-size: size(smaller);
     }
 
-    & .wrapper .article .article__block .article__block__description{
+    & .wrapper .article .article__block .article__block__description {
       font-size: size(x-small3);
     }
   }
 
-  .footer-container{
-    & .responsive-footer__column2 .location .responsive-footer__text, & .responsive-footer__column1 .responsive-footer__column1__div2 .contact{
+  .footer-container {
+    & .responsive-footer__column2 .location .responsive-footer__text,
+    & .responsive-footer__column1 .responsive-footer__column1__div2 .contact {
       font-size: size(x-small3);
     }
 
-    & .responsive-footer{
+    & .responsive-footer {
       padding: 64px 16px;
     }
 
-    & .responsive-footer__column1 .responsive-footer__column1__logo, & .responsive-footer__column1 .responsive-footer__column1__div2{
+    & .responsive-footer__column1 .responsive-footer__column1__logo,
+    & .responsive-footer__column1 .responsive-footer__column1__div2 {
       padding-left: 0;
     }
 
-    & .responsive-footer__h3{
+    & .responsive-footer__h3 {
       font-size: size(x-small2);
     }
 
-    & .responsive-footer__column2{
+    & .responsive-footer__column2 {
       padding-top: 24px;
     }
   }
 }
 
-@media screen and (max-width: 320px){
-  .header .navbar, main .banner .overlay .banner-text, main .wrapper{
+@media screen and (max-width: 320px) {
+  .header .navbar,
+  main .banner .overlay .banner-text,
+  main .wrapper {
     padding: 0 12px;
   }
 
-  .header .navbar .nav-link__logo .nav-link__logo__img{
+  .header .navbar .nav-link__logo .nav-link__logo__img {
     width: 120px;
   }
 
-  main .banner{
+  main .banner {
     height: 100vh;
     margin-bottom: 40px;
 
-    & .overlay .banner-text .banner-text__h1{
+    & .overlay .banner-text .banner-text__h1 {
       width: 100%;
       left: 0;
       font-size: size(small2);
     }
 
-    & .overlay .banner-text .banner-text__h4{
+    & .overlay .banner-text .banner-text__h4 {
       width: auto;
       left: 34px;
       position: static;
@@ -703,44 +727,49 @@ main {
     }
   }
 
-  main{
-    & .wrapper, & .wrapper .article, & .margin{
+  main {
+    & .wrapper,
+    & .wrapper .article,
+    & .margin {
       margin-bottom: 40px;
     }
 
-    & .wrapper .article .article__block .article__block__title, & .margin .wrapper__title{
+    & .wrapper .article .article__block .article__block__title,
+    & .margin .wrapper__title {
       font-size: size(smaller);
     }
 
-    & .wrapper .article .article__block .article__block__description{
+    & .wrapper .article .article__block .article__block__description {
       padding: 8px 0 0;
       font-size: size(x-small3);
     }
   }
 
-  .footer-container{
-    & .responsive-footer{
+  .footer-container {
+    & .responsive-footer {
       padding-left: 12px;
     }
 
-    & .responsive-footer__column1 .responsive-footer__column1__logo, & .responsive-footer__column1 .responsive-footer__column1__div2{
+    & .responsive-footer__column1 .responsive-footer__column1__logo,
+    & .responsive-footer__column1 .responsive-footer__column1__div2 {
       padding-left: 0;
     }
 
-    & .responsive-footer__h3{
+    & .responsive-footer__h3 {
       font-size: size(x-small2);
     }
 
-    & .responsive-footer__column2{
+    & .responsive-footer__column2 {
       padding-top: 24px;
     }
 
-    & .responsive-footer__column2 .location .responsive-footer__text, & .responsive-footer__column1 .responsive-footer__column1__div2 .contact{
+    & .responsive-footer__column2 .location .responsive-footer__text,
+    & .responsive-footer__column1 .responsive-footer__column1__div2 .contact {
       font-size: size(x-small3);
     }
   }
 
-  .header .navbar .hamburger-menu{
+  .header .navbar .hamburger-menu {
     padding: 5px 10px;
     font-size: size(x-small2);
   }
