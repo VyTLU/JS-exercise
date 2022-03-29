@@ -64,10 +64,12 @@ function renderHTML(productData) {
         productName += `<div class="product__wrapper__name">${element.alt}</div>`;
         productPrice += `<div class="product__wrapper__price">${element.price}</div>`;
 
-        data += `<div class="product__wrapper">
+        data += `<div class="product__wrapper col-3">
+        ${productName}
               ${productImg}
               <a class="product__wrapper__add add-cart">Add to cart</a>
-              ${productName}
+
+              
               ${productPrice}
             </div>`;
 

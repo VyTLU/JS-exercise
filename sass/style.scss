@@ -18,11 +18,13 @@
 
 body {
   font-family: "Roboto", sans-serif !important;
+  justify-content: center;
+  align-items: center;
 }
 
 .header {
   // background-color: $primary-color;
-  background-color: transparent;
+  background: linear-gradient(10deg, $primary-color, $white-color);
 
   & .navbar {
     width: 1200px;
@@ -101,23 +103,27 @@ body {
       display: flex;
       padding: 16px 18px;
       font-size: size(medium2);
+    }
 
-      & .badge {
-        padding-left: 9px;
-        padding-right: 9px;
-        -webkit-border-radius: 9px;
-        -moz-border-radius: 9px;
-        border-radius: 9px;
-      }
+    & .badge {
+      padding-left: 9px;
+      padding-right: 9px;
+      -webkit-border-radius: 9px;
+      -moz-border-radius: 9px;
+      border-radius: 9px;
+    }
 
-      & #lblCartCount {
-        font-size: 12px;
-        // background: #ff0000;
-        color: red;
-        padding: 0 5px;
-        vertical-align: top;
-        margin-left: -15px;
-      }
+    & #lblCartCount {
+      font-size: 12px;
+      background: $primary-color;
+      color: red;
+      padding: 0 5px;
+      vertical-align: top;
+      margin-left: -15px;
+    }
+
+    & .badge-warning{
+      padding: 3px;
     }
   }
 }
@@ -136,6 +142,7 @@ svg {
   vertical-align: -0.125em !important;
   display: inline-block;
   font-size: inherit;
+  z-index: 3;
 }
 
 button:focus {
@@ -144,10 +151,12 @@ button:focus {
 
 main {
   display: block;
+  justify-content: center;
+  align-items: center;
 
   & .banner {
     position: relative;
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     background: url("https://source.unsplash.com/mr4JG4SYOF8") center/cover
       no-repeat;
@@ -155,7 +164,7 @@ main {
 
     & .overlay {
       position: inherit;
-      height: 100vh;
+      height: 80vh;
       width: 100%;
       background: rgba(0, 0, 0, 0.4);
 
