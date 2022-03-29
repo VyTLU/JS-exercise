@@ -1,5 +1,7 @@
 //https://www.figma.com/community/file/888726891176991741
 //https://www.behance.net/gallery/80515301/Wavey-beauty-UI
+//https://elegantthemesexamples.com/cart-and-checkout/two/
+//https://stackoverflow.com/questions/51304169/how-to-put-the-number-at-top-right-corner-of-cart-icon
 
 let productIncrement = document.getElementsByClassName("item-list__increase");
 let productDecrement = document.getElementsByClassName("item-list__decrease");
