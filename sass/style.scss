@@ -23,8 +23,8 @@ body {
 }
 
 .header {
-  // background-color: $primary-color;
-  background: linear-gradient(10deg, $primary-color, $white-color);
+  background-color: $white-color;
+  // background: linear-gradient(10deg, $primary-color, $white-color);
 
   & .navbar {
     width: 1200px;
@@ -73,7 +73,7 @@ body {
       & .dropdown__content {
         display: none;
         position: absolute;
-        background-color: $primary-color;
+        background-color: $white-color;
         min-width: 160px;
         width: fit-content;
         box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
@@ -84,7 +84,7 @@ body {
           padding: 16px 18px;
 
           &:hover {
-            background-color: $second-color;
+            background-color: grey;
           }
         }
       }
@@ -117,8 +117,8 @@ body {
 
     & #lblCartCount {
       font-size: 12px;
-      background: $primary-color;
-      color: red;
+      background: $black-color;
+      color: $white-color;
       padding: 2px 5px;
       vertical-align: top;
       margin-left: -10px;
@@ -134,11 +134,11 @@ a {
   cursor: pointer;
   text-decoration: none !important;
   background-color: transparent;
-  color: $white-color !important;
+  color: $black-color !important;
 }
 
 svg {
-  color: $white-color;
+  color: $black-color;
   width: 0.625em;
   height: 1em;
   vertical-align: -0.125em !important;
@@ -158,11 +158,11 @@ main {
 
   & .banner {
     position: relative;
-    height: 80vh;
+    height: 100vh;
     width: 100%;
-    background: url("https://source.unsplash.com/mr4JG4SYOF8") center/cover
+    background: url("../img/banner.svg") center/90% 80%
       no-repeat;
-    margin: 0 0 120px;
+    margin: 0 0 100px;
 
     & .overlay {
       position: inherit;
