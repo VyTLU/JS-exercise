@@ -1,7 +1,6 @@
 .product{
 
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     padding-bottom: 6rem;
     width: 1250px;
@@ -9,10 +8,7 @@
     margin-top: -10rem;
 
     & .product__wrapper{
-        // margin: 0 1.25rem;
         position: relative;
-        // width: 20rem;
-        // overflow: hidden;
 
         & .product__wrapper__img{
             width: 100%;
@@ -33,7 +29,7 @@
             text-align: center;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -40%);
         }
 
         // & .product__wrapper__img:hover .add-cart{

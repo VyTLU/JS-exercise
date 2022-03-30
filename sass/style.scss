@@ -100,9 +100,11 @@ body {
     }
 
     & .navbar__menu-cart {
-      display: flex;
-      padding: 16px 18px;
+      display: inline-block;
+      position: relative;
+      padding: 10px 18px;
       font-size: size(medium2);
+      text-align: center;
     }
 
     & .badge {
@@ -117,9 +119,9 @@ body {
       font-size: 12px;
       background: $primary-color;
       color: red;
-      padding: 0 5px;
+      padding: 2px 5px;
       vertical-align: top;
-      margin-left: -15px;
+      margin-left: -10px;
     }
 
     & .badge-warning{
