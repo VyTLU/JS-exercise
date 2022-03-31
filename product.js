@@ -43,7 +43,7 @@ const CART = {
 };
 
 let product = new XMLHttpRequest();
-product.open("GET", "http://localhost:3000/product");
+product.open("GET", "http://localhost:3001/product");
 product.onload = function () {
   productData = JSON.parse(product.responseText);
 
@@ -80,6 +80,7 @@ function renderHTML(productData) {
 
   for (let i = 0; i < productAdd.length; i++) {
     const element = productAdd[i];
+    console.log(element);
     element.setAttribute("data-id", productData[i].id);
     element.addEventListener("click", addProduct);
   }

@@ -75,21 +75,25 @@ function showCart() {
     let itemImg = "",
       itemPrice = "",
       itemQuantity = "",
+      itemName = "",
       itemData = "";
 
     itemImg += `<img class="item-list__photo" src="https://source.unsplash.com/${item.src}" alt="${item.alt}" />`;
+    itemName += `<div class="item-list__name">${item.alt}</div>`
     itemPrice += `<div class="item-list__price">${item.price * item.quantity}</div>`;
     itemQuantity += `<span id="quantity_${item.id}" class="item-list__quantity">${item.quantity}</span>`;
 
     itemData += `<div class="item-list"> 
                     ${itemImg}
-                    ${itemPrice}
+                    <button class="item-list__remove">Remove</button>
+                    ${itemName}
+                    ${item.price}
                     <div class="">
                       <span class="item-list__increase">+</span>
                       ${itemQuantity}
                       <span class="item-list__decrease">-</span>
                     </div>
-                    <button class="item-list__remove">Remove</button>
+                    ${itemPrice}
                 </div>`;
 
     itemSection.insertAdjacentHTML('beforeend', itemData);
