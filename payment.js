@@ -6,6 +6,7 @@
 let productIncrement = document.getElementsByClassName("item-list__increase");
 let productDecrement = document.getElementsByClassName("item-list__decrease");
 let productRemove = document.getElementsByClassName("item-list__remove");
+let badgeCart = document.getElementById("lblCartCount");
 
 const CART = {
   KEY: "JStest",
@@ -70,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function showCart() {
-  let itemSection = document.getElementsByClassName("item-container")[0];
+  let itemSection = document.getElementsByClassName("item-container__info")[0];
   CART.contents.forEach((item) => {
     let itemImg = "",
       itemPrice = "",
@@ -79,22 +80,23 @@ function showCart() {
       itemData = "";
 
     itemImg += `<img class="item-list__photo" src="https://source.unsplash.com/${item.src}" alt="${item.alt}" />`;
-    itemName += `<div class="item-list__name">${item.alt}</div>`
-    itemPrice += `<div class="item-list__price">${item.price * item.quantity}</div>`;
-    itemQuantity += `<span id="quantity_${item.id}" class="item-list__quantity">${item.quantity}</span>`;
+    itemName += `<td class="item-list__name">${item.alt}</td>`
+    itemPrice += `<td class="item-list__price">${item.price * item.quantity}</td>`;
+    itemQuantity += `<td id="quantity_${item.id}" class="item-list__quantity">${item.quantity}</td>`;
 
-    itemData += `<div class="item-list"> 
-                    ${itemImg}
-                    <button class="item-list__remove">Remove</button>
-                    ${itemName}
-                    ${item.price}
-                    <div class="">
-                      <span class="item-list__increase">+</span>
+    itemData += `<tbody>
+                  <tr class="item-list"> 
+                      <td>${itemImg}
+                        <span class="badge badge-warning badge-pill item-list__remove" id="lblCartRemove">x</span>
+                      </td>
+                      ${itemName}
+                      <td>${item.price}</td>
+                      <td class="item-list__increase">+</td>
                       ${itemQuantity}
-                      <span class="item-list__decrease">-</span>
-                    </div>
-                    ${itemPrice}
-                </div>`;
+                      <td class="item-list__decrease">-</td>
+                      ${itemPrice}
+                  </tr>
+                </tbody>`;
 
     itemSection.insertAdjacentHTML('beforeend', itemData);
   });
@@ -116,6 +118,8 @@ function showCart() {
     element.setAttribute('data-id', CART.contents[i].id);
     element.addEventListener('click', removeCart);
   }
+
+  // badgeCart.innerHTML = CART.contents.length;
 }
 
 function incrementCart(element) {
@@ -139,7 +143,7 @@ function decrementCart(element) {
   if (item) {
     qty.textContent = item.quantity;
   } else {
-    controls.parentElement.remove();
+    controls.parentElement.parentElement.remove();
   }
   updateTotal(id, element);
 }
@@ -147,7 +151,7 @@ function decrementCart(element) {
 function removeCart(element) {
   element.preventDefault();
   let id = parseInt(element.target.getAttribute('data-id'));
-  element.target.parentElement.remove();
+  element.target.parentElement.parentElement.remove();
   CART.remove(id);
 }
 
