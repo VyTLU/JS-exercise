@@ -1,32 +1,6 @@
-// .progress {
-//   padding: 80px 0;
-//   max-width: 1080px;
-//   margin: auto;
-//   position: relative;
-
-//   & .progress-bar {
-//     width: 100%;
-//     position: relative;
-//     float: left;
-
-//     & .divider {
-//       margin-top: 32px !important;
-//       width: 100%;
-//       position: absolute !important;
-//       content: "";
-//       width: 100%;
-//       border-top-style: solid;
-//       border-top-color: #343854;
-//       border-top-width: 2px;
-//       position: absolute;
-//     }
-//   }
-// }
-
 .row{
   margin: auto;
   margin: auto 0 !important;
-  max-width: 1200px;
   display: flex;
   flex-direction: row;
   padding-top: 90px;
@@ -227,20 +201,22 @@
     & .item-container__cart-checkout {
       padding: 1em 0;
 
-      & .checkout-button {
-        display: block;
-        text-align: center;
-        margin-bottom: 0px;
-        color: #ffffff !important;
-        border-width: 0px;
-        border-radius: 10px;
-        font-weight: 600;
-        text-transform: uppercase;
-        background-color: #08c451;
-        box-shadow: 0px 15px 30px 0px rgb(8 196 81 / 40%);
-        cursor: pointer;
-        padding: 1em;
-      }
+      
     }
   }
+}
+
+.checkout-button {
+  display: block;
+  text-align: center;
+  margin-bottom: 0px;
+  color: #ffffff !important;
+  border-width: 0px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #08c451;
+  box-shadow: 0px 15px 30px 0px rgb(8 196 81 / 40%);
+  cursor: pointer;
+  padding: 1em;
 }

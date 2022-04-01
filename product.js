@@ -42,8 +42,16 @@ const CART = {
   },
 };
 
+window.onload = function () {
+  const cartData = JSON.parse(localStorage.getItem(CART.KEY) || '[]');
+  CART.contents = cartData;
+  if (CART.contents.length) {
+    badgeCart.innerHTML = CART.contents.length;
+  }
+}
+
 let product = new XMLHttpRequest();
-product.open("GET", "http://localhost:3001/product");
+product.open("GET", "http://localhost:3000/product");
 product.onload = function () {
   productData = JSON.parse(product.responseText);
 
@@ -88,7 +96,7 @@ function renderHTML(productData) {
 
 function addProduct(element) {
   element.preventDefault();
-  let id = parseInt(element.target.getAttribute("data-id")||element.target.parentElement.getAttribute("data-id")||element.target.parentElement.parentElement.getAttribute("data-id"));
+  let id = parseInt(element.target.getAttribute("data-id") || element.target.parentElement.getAttribute("data-id") || element.target.parentElement.parentElement.getAttribute("data-id"));
   CART.add(id, 1);
   if (CART.find(id)) {
     badgeCart.innerHTML = CART.contents.length;

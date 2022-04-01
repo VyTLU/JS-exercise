@@ -5,6 +5,9 @@
 let productQuantity = document.getElementsByClassName("item-list__quantity");
 let productRemove = document.getElementsByClassName("item-list__remove");
 let badgeCart = document.getElementById("lblCartCount");
+let productTotals = document.getElementById("cartTotAmount");
+
+// let count = 0;
 
 const CART = {
   KEY: "JStest",
@@ -47,11 +50,7 @@ const CART = {
     });
 
     CART.sync()
-  },
-  empty() {
-    CART.contents = [];
-    CART.sync()
-  },
+  }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -103,7 +102,7 @@ function showCart() {
     element.addEventListener('click', removeCart);
   }
 
-  // badgeCart.innerHTML = CART.contents.length;
+  totals();
 }
 
 function updateCart(element){
@@ -128,14 +127,29 @@ function removeCart(element) {
   console.log(id);
   CART.remove(id);
   element.target.parentElement.parentElement.remove();
+  totals();
 }
 
 function updateTotal(id, element) {
   let item = CART.find(id);
+  // let temp = 0;
   if (item) {
     let total = item.price * item.quantity;
 
     let prc = element.target.parentElement.parentElement.querySelector(".item-list__price");
     prc.textContent = total;
+
+    
   }
+  totals();
+}
+
+function totals(){
+  let temp = 0;
+  for (let i = 0; i < CART.contents.length; i++) {
+    let element = CART.contents[i];
+    temp += element.price*element.quantity;
+    
+  }
+  productTotals.innerHTML = temp;
 }

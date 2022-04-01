@@ -1,7 +1,6 @@
 .row {
   margin: auto;
   margin: auto 0 !important;
-  max-width: 1200px;
   display: flex;
   flex-direction: row;
   padding-top: 90px;
@@ -209,7 +208,8 @@
 .item-container .item-container__cart .item-container__cart-checkout {
   padding: 1em 0;
 }
-.item-container .item-container__cart .item-container__cart-checkout .checkout-button {
+
+.checkout-button {
   display: block;
   text-align: center;
   margin-bottom: 0px;
@@ -225,6 +225,7 @@
 }
 
 .product {
+  margin-top: 170px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -290,6 +291,32 @@
 }
 .product .product__container .product__wrapper .product__wrapper__price {
   transform: translate(85%, -100%);
+}
+
+#containerCheckout {
+  justify-content: center;
+  opacity: 1;
+}
+#containerCheckout .item-container__checkout-payment {
+  margin-right: 0;
+}
+#containerCheckout #checkoutPage {
+  cursor: pointer;
+}
+
+.item-container__bill, .item-container__order, .item-container__checkout-payment {
+  margin-right: 32px;
+  float: left;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 20px 40px 10px 40px;
+  box-shadow: 0px 40px 80px 0px rgba(184, 184, 184, 0.3);
+}
+
+#finalText {
+  display: none;
+  opacity: 0;
+  padding-bottom: 20px;
 }
 
 * {
