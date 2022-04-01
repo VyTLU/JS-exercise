@@ -1,10 +1,8 @@
 //https://www.figma.com/community/file/888726891176991741
 //https://www.behance.net/gallery/80515301/Wavey-beauty-UI
 //https://elegantthemesexamples.com/cart-and-checkout/two/
-//https://stackoverflow.com/questions/51304169/how-to-put-the-number-at-top-right-corner-of-cart-icon
 
-let productIncrement = document.getElementsByClassName("item-list__increase");
-let productDecrement = document.getElementsByClassName("item-list__decrease");
+let productQuantity = document.getElementsByClassName("item-list__quantity");
 let productRemove = document.getElementsByClassName("item-list__remove");
 let badgeCart = document.getElementById("lblCartCount");
 
@@ -29,19 +27,10 @@ const CART = {
     });
     if (match && match[0]) return match[0];
   },
-  increase(id, qty = 1) {
+  update(id, value){
     CART.contents = CART.contents.map(item => {
       if (item.id === id)
-        item.quantity = item.quantity + qty;
-      return item;
-    });
-
-    CART.sync()
-  },
-  reduce(id, qty = 1) {
-    CART.contents = CART.contents.map(item => {
-      if (item.id === id)
-        item.quantity = item.quantity - qty;
+        item.quantity = value;
       return item;
     });
     CART.contents.forEach(async item => {
@@ -79,38 +68,33 @@ function showCart() {
       itemName = "",
       itemData = "";
 
-    itemImg += `<img class="item-list__photo" src="https://source.unsplash.com/${item.src}" alt="${item.alt}" />`;
+    itemImg += `<img width="40" height-"40" class="item-list__photo" src="https://source.unsplash.com/${item.src}" alt="${item.alt}" />`;
     itemName += `<td class="item-list__name">${item.alt}</td>`
     itemPrice += `<td class="item-list__price">${item.price * item.quantity}</td>`;
-    itemQuantity += `<td id="quantity_${item.id}" class="item-list__quantity">${item.quantity}</td>`;
+    itemQuantity += `<input type="number" id="quantity_${item.id}" class="item-list__quantity" step="1" min="0" value="${item.quantity}" placeholder inputmode="numeric">`;
 
     itemData += `<tbody>
                   <tr class="item-list"> 
-                      <td>${itemImg}
-                        <span class="badge badge-warning badge-pill item-list__remove" id="lblCartRemove">x</span>
-                      </td>
-                      ${itemName}
-                      <td>${item.price}</td>
-                      <td class="item-list__increase">+</td>
+                    <td class="item-list__remove">
+                      <a class="badge badge-warning badge-pill" id="lblCartRemove">x</a>
+                    </td>
+                    <td>${itemImg}</td>
+                    ${itemName}
+                    <td>${item.price}</td>
+                    <td>
                       ${itemQuantity}
-                      <td class="item-list__decrease">-</td>
-                      ${itemPrice}
+                    </td>
+                    ${itemPrice}
                   </tr>
                 </tbody>`;
 
     itemSection.insertAdjacentHTML('beforeend', itemData);
   });
 
-  for (let i = 0; i < productIncrement.length; i++) {
-    const element = productIncrement[i];
+  for (let i = 0; i < productQuantity.length; i++) {
+    const element = productQuantity[i];
     element.setAttribute('data-id', CART.contents[i].id);
-    element.addEventListener('click', incrementCart);
-  }
-
-  for (let i = 0; i < productDecrement.length; i++) {
-    const element = productDecrement[i];
-    element.setAttribute('data-id', CART.contents[i].id);
-    element.addEventListener('click', decrementCart);
+    element.addEventListener('change', updateCart);
   }
 
   for (let i = 0; i < productRemove.length; i++) {
@@ -122,37 +106,28 @@ function showCart() {
   // badgeCart.innerHTML = CART.contents.length;
 }
 
-function incrementCart(element) {
+function updateCart(element){
   element.preventDefault();
   let id = parseInt(element.target.getAttribute('data-id'));
-  CART.increase(id, 1);
-  let controls = element.target.parentElement;
-  let qty = controls.querySelector('span:nth-child(2)');
-  let item = CART.find(id);
-  qty.textContent = item.quantity;
-  updateTotal(id, element);
-}
+  console.log(element.target);
+  let value = parseInt(element.target.value);
+  console.log(value);
+  CART.update(id, value);
 
-function decrementCart(element) {
-  element.preventDefault();
-  let id = parseInt(element.target.getAttribute('data-id'));
-  CART.reduce(id, 1);
-  let controls = element.target.parentElement;
-  let qty = controls.querySelector('span:nth-child(2)');
   let item = CART.find(id);
-  if (item) {
-    qty.textContent = item.quantity;
-  } else {
-    controls.parentElement.parentElement.remove();
+  if (!item){
+    element.target.parentElement.parentElement.remove();
   }
   updateTotal(id, element);
 }
 
 function removeCart(element) {
   element.preventDefault();
-  let id = parseInt(element.target.getAttribute('data-id'));
-  element.target.parentElement.parentElement.remove();
+  console.log(element.target);
+  let id = parseInt(element.target.parentElement.getAttribute('data-id'));
+  console.log(id);
   CART.remove(id);
+  element.target.parentElement.parentElement.remove();
 }
 
 function updateTotal(id, element) {

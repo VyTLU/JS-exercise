@@ -16,17 +16,56 @@ html(lang="en")
         include ../pug/header.pug
 
         main
+            //- .progress
+            //-     .progress-bar
+            //-         .divider 
+            //-         .divider-light
+            //-         .progress-bar__shop
+            //-             .progress-bar__shop__icon x
+            //-             .progress-bar__shop__title
+            //-                 h4 Shop
+            //-         .progress-bar__cart
+            //-             .progress-bar__cart__icon y
+            //-             .progress-bar__cart__title
+            //-                 h4 Review
+            //-         .progress-bar__checkout
+            //-             .progress-bar__checkout__icon z
+            //-             .progress-bar__checkout__title
+            //-                 h4 Checkout
+
+            .container 
+                .row 
+                    .col-12.col-md-10.hh-grayBox.pt45.pb20
+                        .justify-content-between.d-flex
+                            .order-tracking.completed
+                                span.is-complete 
+                                p Shop 
+                            .order-tracking.completed
+                                span.is-complete 
+                                p Review 
+                            .order-tracking
+                                span.is-complete 
+                                p Checkout
+
             .item-container 
                 table.item-container__info
                     thead
                         tr.item-container__info-title
-                            th(colspan="2") Product
+                            th &nbsp;
+                            th &nbsp;
+                            th Product
                             th Price
-                            th(colspan="3") Quantity
+                            th Quantity
                             th Total
-                .item-container__cart.col-2 
+                .item-container__cart.col-4 
                     h3 Cart Totals
-
+                    table.item-container__cart-table
+                        tbody 
+                            tr.item-container__cart-total
+                                th TOTAL
+                                td#cartTotAmount 9.99
+                    .item-container__cart-checkout
+                        a.checkout-button Checkout
         include ../pug/footer.pug
 
         script(src="../payment.js") 

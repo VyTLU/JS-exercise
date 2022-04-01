@@ -43,7 +43,7 @@ const CART = {
 };
 
 let product = new XMLHttpRequest();
-product.open("GET", "http://localhost:3000/product");
+product.open("GET", "http://localhost:3001/product");
 product.onload = function () {
   productData = JSON.parse(product.responseText);
 
