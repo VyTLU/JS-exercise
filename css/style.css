@@ -177,7 +177,8 @@
   min-width: 60px;
   width: 3.631em;
 }
-.item-container .item-container__cart {
+
+.item-container__cart {
   margin-right: 0;
   float: left;
   background-color: #ffffff;
@@ -185,11 +186,11 @@
   padding: 20px 20px 10px 20px;
   box-shadow: 0px 40px 80px 0px rgba(184, 184, 184, 0.3);
 }
-.item-container .item-container__cart h3 {
+.item-container__cart h3 {
   font-weight: 600;
   padding-bottom: 10px;
 }
-.item-container .item-container__cart .item-container__cart-table {
+.item-container__cart .item-container__cart-table {
   border-color: RGBA(0, 0, 0, 0);
   table-layout: fixed;
   margin: 0 0 15px;
@@ -197,15 +198,15 @@
   width: 100%;
   margin-bottom: 30px;
 }
-.item-container .item-container__cart .item-container__cart-table th {
+.item-container__cart .item-container__cart-table th {
   font-weight: 500;
   text-transform: uppercase;
   border-color: RGBA(0, 0, 0, 0);
 }
-.item-container .item-container__cart .item-container__cart-table td {
+.item-container__cart .item-container__cart-table .item-container__cart-tbody {
   font-weight: 700;
 }
-.item-container .item-container__cart .item-container__cart-checkout {
+.item-container__cart .item-container__cart-checkout {
   padding: 1em 0;
 }
 
@@ -293,18 +294,25 @@
   transform: translate(85%, -100%);
 }
 
-#containerCheckout {
-  justify-content: center;
-  opacity: 1;
+#progressBarCheckout {
+  display: flex;
 }
-#containerCheckout .item-container__checkout-payment {
+#progressBarCheckout #containerCheckout {
+  justify-content: center;
+}
+#progressBarCheckout #containerCheckout h3 {
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+#progressBarCheckout #containerCheckout #checkoutPayment {
   margin-right: 0;
 }
-#containerCheckout #checkoutPage {
+#progressBarCheckout #containerCheckout #checkoutPage {
   cursor: pointer;
 }
 
-.item-container__bill, .item-container__order, .item-container__checkout-payment {
+.item-container__bill,
+.item-container__cart {
   margin-right: 32px;
   float: left;
   background-color: #ffffff;
@@ -315,13 +323,19 @@
 
 #finalText {
   display: none;
-  opacity: 0;
-  padding-bottom: 20px;
+  height: 60vh;
+  justify-content: center;
+}
+#finalText .item-container__bill > h3 {
+  padding: 10px 0 0;
+}
+
+.item-container__cart-checkout {
+  padding: 20px 0;
 }
 
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 

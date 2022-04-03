@@ -1,13 +1,7 @@
-//https://www.figma.com/community/file/888726891176991741
-//https://www.behance.net/gallery/80515301/Wavey-beauty-UI
-//https://elegantthemesexamples.com/cart-and-checkout/two/
-
 let productQuantity = document.getElementsByClassName("item-list__quantity");
 let productRemove = document.getElementsByClassName("item-list__remove");
 let badgeCart = document.getElementById("lblCartCount");
 let productTotals = document.getElementById("cartTotAmount");
-
-// let count = 0;
 
 const CART = {
   KEY: "JStest",
@@ -88,7 +82,13 @@ function showCart() {
                 </tbody>`;
 
     itemSection.insertAdjacentHTML('beforeend', itemData);
+
+    
   });
+
+  if (CART.contents.length) {
+    badgeCart.innerHTML = CART.contents.length;
+  }
 
   for (let i = 0; i < productQuantity.length; i++) {
     const element = productQuantity[i];
@@ -132,14 +132,11 @@ function removeCart(element) {
 
 function updateTotal(id, element) {
   let item = CART.find(id);
-  // let temp = 0;
   if (item) {
     let total = item.price * item.quantity;
 
     let prc = element.target.parentElement.parentElement.querySelector(".item-list__price");
-    prc.textContent = total;
-
-    
+    prc.textContent = Math.round(total * 100) / 100;
   }
   totals();
 }
@@ -149,7 +146,6 @@ function totals(){
   for (let i = 0; i < CART.contents.length; i++) {
     let element = CART.contents[i];
     temp += element.price*element.quantity;
-    
   }
-  productTotals.innerHTML = temp;
+  productTotals.innerHTML = Math.round(temp * 100) / 100;
 }

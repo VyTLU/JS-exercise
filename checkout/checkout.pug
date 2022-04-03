@@ -16,7 +16,7 @@ html(lang="en")
         include ../pug/header.pug
 
         main
-            .d-flex.align-items-center.flex-column
+            .align-items-center.flex-column#progressBarCheckout
                 .container.justify-content-center
                     .row.justify-content-center 
                         .col-12.col-md-10.hh-grayBox.pt45.pb20
@@ -34,30 +34,35 @@ html(lang="en")
                 .item-container#containerCheckout
                     .item-container__bill.col-4 
                         h3 Billing Details
-                        form
-                            p.form-row 
+                        form.d-flex.flex-column
+                            p.form-row.d-flex.flex-column
                                 label(for="billing-first-name") First name
                                 input(type="text" id="billing-first-name" placeholder value)
-                            p.form-row 
+                            p.form-row.d-flex.flex-column
                                 label(for="billing-last-name") Last name
                                 input(type="text" id="billing-last-name" placeholder value)
-                            p.form-row 
+                            p.form-row.d-flex.flex-column
                                 label(for="billing-address") Address
                                 input(type="text" id="billing-address" placeholder value)
-                    .item-container__order.col-4 
+                    .item-container__cart.col-4 
                         h3 Your order
                         table.item-container__cart-table
                             tbody.item-container__cart-tbody
-                    .item-container__checkout-payment.col-4 
+                    .item-container__cart.col-4#checkoutPayment
                         h3 Checkout Payment
-                        .item-container__checkout-info 
-                            .first-name First Name:&nbsp;
-                            .last-name Last Name:&nbsp;
-                            .address Address:&nbsp;
-                            .count Totals&nbsp;
+                        table.item-container__cart-table
+                            tbody.item-container__cart-tbody
+                                tr.item-container__cart-total
+                                    td.first-name First Name
+                                tr.item-container__cart-total
+                                    td.last-name Last Name
+                                tr.item-container__cart-total
+                                    td.address Address
+                                tr.item-container__cart-total
+                                    td.count Totals
                         .item-container__cart-checkout#checkoutPage
                             a.checkout-button Checkout
-            .d-flex.align-items-center.flex-column#finalText
+            .align-items-center.flex-column#finalText
                 .item-container__bill
                     h3 Thank you for your purchase.
                     .item-container__cart-checkout
